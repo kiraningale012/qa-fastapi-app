@@ -1,0 +1,23 @@
+
+Introduction to Machine Learning
+
+Machine Learning (ML) is a subset of artificial intelligence that focuses on building systems that can learn 
+from and make decisions based on data. Instead of being explicitly programmed to perform a task, ML algorithms 
+use patterns and inference to improve over time. Common types of machine learning include supervised learning, 
+where the model is trained on labeled data; unsupervised learning, which finds hidden patterns in unlabeled data; 
+and reinforcement learning, where an agent learns to make decisions by receiving rewards or penalties. ML is widely 
+used in applications like recommendation systems, fraud detection, image recognition, and predictive analytics.
+
+
+
+Top 5 Questions:
+What is the main goal of machine learning?
+
+Name and explain the three main types of machine learning.
+
+How does supervised learning differ from unsupervised learning?
+
+Give two real-world applications of machine learning.
+
+Why is labeled data important in supervised learning?
+

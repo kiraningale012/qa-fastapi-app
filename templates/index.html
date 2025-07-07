@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Question Answering System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 2rem;
+            background-color: #f8f9fa;
+        }
+        .card {
+            max-width: 800px;
+            margin: auto;
+        }
+        textarea {
+            resize: vertical;
+        }
+    </style>
+</head>
+<body>
+<div class="card shadow">
+    <div class="card-body">
+        <h3 class="card-title text-center">Question Answering (Detailed)</h3>
+        <div class="mb-3">
+            <label for="context" class="form-label">Context Paragraph</label>
+            <textarea class="form-control" id="context" rows="5"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="question" class="form-label">Your Question</label>
+            <input type="text" class="form-control" id="question" placeholder="Type your question here...">
+        </div>
+        <div class="d-grid mb-3">
+            <button class="btn btn-primary" onclick="askQuestion()">Get Answer</button>
+        </div>
+        <div class="alert alert-info d-none" id="loading">Processing...</div>
+        <div class="alert alert-success d-none" id="answerBox"></div>
+    </div>
+</div>
+
+<script>
+    async function askQuestion() {
+        const context = document.getElementById("context").value;
+        const question = document.getElementById("question").value;
+        const loading = document.getElementById("loading");
+        const answerBox = document.getElementById("answerBox");
+
+        if (!context || !question) {
+            alert("Please fill both context and question!");
+            return;
+        }
+
+        loading.classList.remove("d-none");
+        answerBox.classList.add("d-none");
+        answerBox.innerText = "";
+
+        const response = await fetch("/qa", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ context, question }),
+        });
+
+        const data = await response.json();
+        loading.classList.add("d-none");
+        answerBox.classList.remove("d-none");
+        answerBox.innerText = data.answer;
+    }
+</script>
+</body>
+</html>
