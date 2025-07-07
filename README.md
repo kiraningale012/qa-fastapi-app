@@ -14,20 +14,17 @@ This project is a **Question Answering Web App** built with **FastAPI** and **Hu
 
 ---
 
-## 🏗️ Project Structure
-qa-fastapi-app/
-├── main.py # App entry point
-├── router/
-│ └── router.py # API routes
-├── services/
-│ └── service.py # Model loading and QA logic
-├── schema/
-│ └── schema.py # Pydantic models
-├── utility/
-│ └── utility.py # Prompt formatter / helpers
-├── templates/
-│ └── index.html # HTML frontend
-├── static/ # Static files (CSS/JS/images if needed)
-├── README.md # Project documentation
-└── requirements.txt # Python dependencies
+---
 
+## 📦 Requirements
+
+- Python 3.8+
+- [Transformers](https://huggingface.co/docs/transformers)
+- FastAPI
+- Uvicorn
+- Torch
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
